@@ -29,6 +29,10 @@
       "source": "attribute",
       "selector": "img",
       "attribute": "src"
+    },
+    "layout": {
+      "type": "string",
+      "default": "image-first"
     }
   },
   "textdomain": "danstoakes-img-content-two-col",

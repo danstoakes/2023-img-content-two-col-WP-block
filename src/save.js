@@ -3,10 +3,10 @@ import { __ } from '@wordpress/i18n';
 import { RichText } from '@wordpress/block-editor';
 
 export default function save ({ attributes }) {
-    const { title, content, mediaURL, alignment, buttonText } = attributes;
+    const { title, content, mediaID, mediaURL, buttonText, layout } = attributes;
 
     return (
-        <section className={`align${alignment}`}>
+        <section className={`${layout}`}>
             <div className="image">
                 {mediaURL && (
                     <img

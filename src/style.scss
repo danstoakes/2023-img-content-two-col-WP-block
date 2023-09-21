@@ -4,6 +4,14 @@ section {
     min-height: 100vh;
     padding: 4rem;
 
+    &.image-first {
+        flex-direction: row;
+    }
+
+    &.content-first {
+        flex-direction: row-reverse;
+    }
+
     .image {
         width: 40%;
 

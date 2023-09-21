@@ -4,9 +4,7 @@ import {
     MediaUpload,
     MediaUploadCheck,
     RichText,
-    InspectorControls,
-    BlockControls,
-    AlignmentToolbar,
+    InspectorControls
 } from '@wordpress/block-editor';
 
 import {
@@ -14,12 +12,13 @@ import {
     PanelRow,
     TextControl,
     Button,
+    SelectControl
 } from '@wordpress/components';
 
 import './editor.scss';
 
 export default function edit ({ attributes, setAttributes, isSelected }) {
-    const { title, content, mediaID, mediaURL, alignment, buttonText } = attributes;
+    const { title, content, mediaID, mediaURL, buttonText, layout } = attributes;
 
     const onChangeTitle = (newTitle) => {
         setAttributes({ title: newTitle });
@@ -47,6 +46,10 @@ export default function edit ({ attributes, setAttributes, isSelected }) {
         setAttributes({ buttonText: newText });
     };
 
+    const onChangeLayout = (newValue) => {
+        setAttributes({ layout: newValue });
+    };
+
     return (
         <>
             <InspectorControls>
@@ -57,23 +60,19 @@ export default function edit ({ attributes, setAttributes, isSelected }) {
                         onChange={onChangeTitle}
                     />
                     <PanelRow>
-                        <strong>{__('Image Alignment')}</strong>
-                    </PanelRow>
-                    <PanelRow>
-                        <AlignmentToolbar
-                            value={alignment}
-                            onChange={(value) => setAttributes({ alignment: value })}
+                        <SelectControl
+                            label={__('Layout')}
+                            value={layout}
+                            options={[
+                                { label: __('Image First'), value: 'image-first' },
+                                { label: __('Content First'), value: 'content-first' },
+                            ]}
+                            onChange={onChangeLayout}
                         />
                     </PanelRow>
                 </PanelBody>
             </InspectorControls>
-            <BlockControls>
-                <AlignmentToolbar
-                    value={alignment}
-                    onChange={(value) => setAttributes({ alignment: value })}
-                />
-            </BlockControls>
-            <section className={`align${alignment}`}>
+            <section className={`${layout}`}>
                 <div className="image">
                     <MediaUploadCheck>
                         <MediaUpload
