@@ -20,7 +20,11 @@
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function danstoakes_img_content_two_col_block_init () {
+function danstoakes_img_content_two_col_block_init () 
+{
+	if (!function_exists("register_block_type"))
+		return;
+		
 	register_block_type( __DIR__ . '/build' );
 }
 
