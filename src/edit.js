@@ -18,14 +18,10 @@ import {
 import './editor.scss';
 
 export default function edit ({ attributes, setAttributes, isSelected }) {
-    const { title, content, mediaID, mediaURL, buttonText, layout } = attributes;
+    const { title, mediaID, mediaURL, layout } = attributes;
 
     const onChangeTitle = (newTitle) => {
         setAttributes({ title: newTitle });
-    };
-
-    const onChangeContent = (newContent) => {
-        setAttributes({ content: newContent });
     };
 
     const onSelectImage = (media) => {
@@ -40,10 +36,6 @@ export default function edit ({ attributes, setAttributes, isSelected }) {
             mediaID: null,
             mediaURL: '',
         });
-    };
-
-    const onChangeButtonText = (newText) => {
-        setAttributes({ buttonText: newText });
     };
 
     const onChangeLayout = (newValue) => {
@@ -116,18 +108,6 @@ export default function edit ({ attributes, setAttributes, isSelected }) {
                         placeholder={__('Enter title...', 'danstoakes-img-content-two-col')}
                         value={title}
                         onChange={onChangeTitle}
-                    />
-                    <RichText
-                        tagName="div"
-                        placeholder={__('Enter content...', 'danstoakes-img-content-two-col')}
-                        multiline="p"
-                        value={content}
-                        onChange={onChangeContent}
-                    />
-                    <TextControl
-                        label={__('Button Text')}
-                        value={buttonText}
-                        onChange={onChangeButtonText}
                     />
                 </div>
             </section>

@@ -3,7 +3,7 @@ import { __ } from '@wordpress/i18n';
 import { RichText } from '@wordpress/block-editor';
 
 export default function save ({ attributes }) {
-    const { title, content, mediaURL, buttonText, layout } = attributes;
+    const { title, mediaURL, layout } = attributes;
 
     return (
         <section className={`${layout}`}>
@@ -19,19 +19,10 @@ export default function save ({ attributes }) {
                 )}
             </div>
             <div className="content">
-                <RichText.Content
-                    tagName="h2"
-                    value={title}
-                />
-                <RichText.Content
-                    tagName="div"
-                    value={content}
-                />
-                {buttonText && (
-                    <a href="#" className="custom-button">
-                        {buttonText}
-                    </a>
-                )}
+                {title && (<RichText.Content
+					tagName='h2'
+					value={title}
+				/>)}
             </div>
         </section>
     );
