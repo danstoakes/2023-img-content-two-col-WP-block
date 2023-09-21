@@ -132,6 +132,11 @@ export default function edit({ attributes, setAttributes, isSelected }) {
                         placeholder={__('Enter content...', 'danstoakes-img-content-two-col')}
                         value={content}
                         onChange={onChangeContent}
+                        style={{
+                            textAlign: 'left',
+                            marginBottom: '2rem',
+                            marginTop: '4rem'
+                        }}
                     />
                     <div>
                         <RichText
