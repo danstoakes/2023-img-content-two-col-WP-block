@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "danstoakes/img-content-two-col",
+  "version": "0.1.0",
+  "title": "Image Beside Text",
+  "category": "media",
+  "icon": "align-pull-left",
+  "description": "Simple two column block for an image and content.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "content": {
+      "type": "string",
+      "source": "html",
+      "selector": ".content"
+    },
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2"
+    },
+    "mediaID": {
+      "type": "number"
+    },
+    "mediaURL": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "img",
+      "attribute": "src"
+    }
+  },
+  "textdomain": "danstoakes-img-content-two-col",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
