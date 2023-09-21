@@ -11,15 +11,22 @@
     "html": false
   },
   "attributes": {
+    "buttonURL": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Click Me"
+    },
     "content": {
       "type": "string",
       "source": "html",
       "selector": ".content"
     },
-    "title": {
+    "layout": {
       "type": "string",
-      "source": "html",
-      "selector": "h2"
+      "default": "image-first"
     },
     "mediaID": {
       "type": "number"
@@ -30,9 +37,10 @@
       "selector": "img",
       "attribute": "src"
     },
-    "layout": {
+    "title": {
       "type": "string",
-      "default": "image-first"
+      "source": "html",
+      "selector": "h2"
     }
   },
   "textdomain": "danstoakes-img-content-two-col",

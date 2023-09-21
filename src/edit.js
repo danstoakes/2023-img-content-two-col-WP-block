@@ -1,10 +1,12 @@
 import { __ } from '@wordpress/i18n';
 
 import {
+    useBlockProps,
     MediaUpload,
     MediaUploadCheck,
     RichText,
-    InspectorControls
+    InspectorControls,
+    URLInputButton
 } from '@wordpress/block-editor';
 
 import {
@@ -17,18 +19,29 @@ import {
 
 import './editor.scss';
 
-export default function edit ({ attributes, setAttributes, isSelected }) {
-    const { title, mediaID, mediaURL, layout } = attributes;
+export default function edit({ attributes, setAttributes, isSelected }) {
+    const { buttonText, buttonURL, title, mediaID, mediaURL, layout, content } = attributes;
+
+    const blockProps = useBlockProps();
+
+    const onChangeButtonURL = (newURL) => {
+        setAttributes({ buttonURL: newURL });
+    };
+
+    const onChangeButtonText = (newText) => {
+        setAttributes({ buttonText: newText });
+    };
+
+    const onChangeContent = (newContent) => {
+        setAttributes({ content: newContent });
+    };
+
+    const onChangeLayout = (newValue) => {
+        setAttributes({ layout: newValue });
+    };
 
     const onChangeTitle = (newTitle) => {
         setAttributes({ title: newTitle });
-    };
-
-    const onSelectImage = (media) => {
-        setAttributes({
-            mediaID: media.id,
-            mediaURL: media.url,
-        });
     };
 
     const onImageRemove = () => {
@@ -38,8 +51,11 @@ export default function edit ({ attributes, setAttributes, isSelected }) {
         });
     };
 
-    const onChangeLayout = (newValue) => {
-        setAttributes({ layout: newValue });
+    const onSelectImage = (media) => {
+        setAttributes({
+            mediaID: media.id,
+            mediaURL: media.url,
+        });
     };
 
     return (
@@ -102,13 +118,35 @@ export default function edit ({ attributes, setAttributes, isSelected }) {
                         />
                     </MediaUploadCheck>
                 </div>
-                <div className="content">
+                <div className="section-content">
                     <RichText
                         tagName="h2"
                         placeholder={__('Enter title...', 'danstoakes-img-content-two-col')}
                         value={title}
                         onChange={onChangeTitle}
                     />
+                    <RichText
+                        {...blockProps}
+                        className="content"
+                        tagName="div"
+                        placeholder={__('Enter content...', 'danstoakes-img-content-two-col')}
+                        value={content}
+                        onChange={onChangeContent}
+                    />
+                    <div>
+                        <RichText
+                            tagName="div"
+                            value={buttonText}
+                            onChange={onChangeButtonText}
+                            placeholder={__('Button Text', 'your-text-domain')}
+                        />
+                        {isSelected && (
+                            <URLInputButton
+                                url={buttonURL}
+                                onChange={onChangeButtonURL}
+                            />
+                        )}
+                    </div>
                 </div>
             </section>
         </>

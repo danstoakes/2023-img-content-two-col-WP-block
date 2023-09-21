@@ -1,1 +1,1 @@
-section{display:flex!important;gap:4rem;min-height:100vh;padding:4rem}section.image-first{flex-direction:row}section.content-first{flex-direction:row-reverse}section .image{width:40%}section .image img{height:100%;-o-object-fit:cover;object-fit:cover}section .content{width:60%}
+section{display:flex!important;gap:4rem;min-height:100vh;padding:4rem}section.image-first{flex-direction:row}section.content-first{flex-direction:row-reverse}section .image{width:40%}section .image img{height:100%;-o-object-fit:cover;object-fit:cover}section .section-content{width:60%}
