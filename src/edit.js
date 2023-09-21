@@ -16,8 +16,10 @@ import {
     Button,
 } from '@wordpress/components';
 
+import './editor.scss';
+
 export default function edit ({ attributes, setAttributes, isSelected }) {
-    const { title, content, mediaID, mediaURL, alignment } = attributes;
+    const { title, content, mediaID, mediaURL, alignment, buttonText } = attributes;
 
     const onChangeTitle = (newTitle) => {
         setAttributes({ title: newTitle });
@@ -39,6 +41,10 @@ export default function edit ({ attributes, setAttributes, isSelected }) {
             mediaID: null,
             mediaURL: '',
         });
+    };
+
+    const onChangeButtonText = (newText) => {
+        setAttributes({ buttonText: newText });
     };
 
     return (
@@ -118,6 +124,11 @@ export default function edit ({ attributes, setAttributes, isSelected }) {
                         multiline="p"
                         value={content}
                         onChange={onChangeContent}
+                    />
+                    <TextControl
+                        label={__('Button Text')}
+                        value={buttonText}
+                        onChange={onChangeButtonText}
                     />
                 </div>
             </section>

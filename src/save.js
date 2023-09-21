@@ -3,7 +3,7 @@ import { __ } from '@wordpress/i18n';
 import { RichText } from '@wordpress/block-editor';
 
 export default function save ({ attributes }) {
-    const { title, content, mediaURL, alignment } = attributes;
+    const { title, content, mediaURL, alignment, buttonText } = attributes;
 
     return (
         <section className={`align${alignment}`}>
@@ -27,6 +27,11 @@ export default function save ({ attributes }) {
                     tagName="div"
                     value={content}
                 />
+                {buttonText && (
+                    <a href="#" className="custom-button">
+                        {buttonText}
+                    </a>
+                )}
             </div>
         </section>
     );
