@@ -6,7 +6,7 @@ export default function save ({ attributes }) {
     const { title, content, mediaURL, alignment } = attributes;
 
     return (
-        <div className={`align${alignment}`}>
+        <section className={`align${alignment}`}>
             <div className="image">
                 {mediaURL && (
                     <img
@@ -28,6 +28,6 @@ export default function save ({ attributes }) {
                     value={content}
                 />
             </div>
-        </div>
+        </section>
     );
 }

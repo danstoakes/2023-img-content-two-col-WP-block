@@ -67,7 +67,7 @@ export default function edit ({ attributes, setAttributes, isSelected }) {
                     onChange={(value) => setAttributes({ alignment: value })}
                 />
             </BlockControls>
-            <div className={`align${alignment}`}>
+            <section className={`align${alignment}`}>
                 <div className="image">
                     <MediaUploadCheck>
                         <MediaUpload
@@ -120,7 +120,7 @@ export default function edit ({ attributes, setAttributes, isSelected }) {
                         onChange={onChangeContent}
                     />
                 </div>
-            </div>
+            </section>
         </>
     );
 }
