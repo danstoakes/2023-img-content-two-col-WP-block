@@ -1,6 +1,8 @@
 import { __ } from '@wordpress/i18n';
 
-export default function Save ({ attributes }) {
+import { RichText } from '@wordpress/block-editor';
+
+export default function save ({ attributes }) {
     const { title, content, mediaURL, alignment } = attributes;
 
     return (

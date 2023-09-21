@@ -16,7 +16,7 @@ import {
     Button,
 } from '@wordpress/components';
 
-export default function Edit ({ attributes, setAttributes, isSelected }) {
+export default function edit ({ attributes, setAttributes, isSelected }) {
     const { title, content, mediaID, mediaURL, alignment } = attributes;
 
     const onChangeTitle = (newTitle) => {
