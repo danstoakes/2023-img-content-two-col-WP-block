@@ -53,7 +53,7 @@ export default function edit ({ attributes, setAttributes, isSelected }) {
     return (
         <>
             <InspectorControls>
-                <PanelBody title={__('Block Settings')}>
+                <PanelBody title={__('Settings')}>
                     <TextControl
                         label={__('Title')}
                         value={title}
